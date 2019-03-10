@@ -6,29 +6,33 @@
         <div class="title">
             {% include 'head.html' %}
             <h1>{{ name }}的简历</h1>
+            {% if online %}
+            <dd><span>在线简历:</span> <a href="{{ online }}" target="_blank">{{ online }}</a></dd>
+            {% endif %}
             <h2>{{ des }}</h2>
         </div>
         <ul class="side-info">
             <li class="someRight">
                 <dt><i class="fa fa-bookmark"></i>Basic info. 基本信息</dt>
-                <dd><span>个人信息:</span> {{ name }} / {{ gender }} / {{ age }} / {{ grade }}</dd>
+                <dd><span>个人信息:</span> {{ name }} 
+                    <br><br> {{ gender }} / {{ age }} / {{ grade }}</dd>
+                <br>
                 <dd><span>学校：</span>{{school}}</dd>
                 <dd><span>专业：</span>{{profession}}</dd>
                 {% if english_level %}
                 <dd><span>英语水平:</span> {{ english_level }}</dd>
                 {% endif %}
-                {% if nickname %}
-                <dd><span>常用ID:</span> {{ nickname }}</dd>
-                {% endif %}
+
+                <br>
                 {% for item in blog %}
                         <dd><span>Blog:</span> <a href="{{item.link}}" target="_blank">{{item.link}} {{item.disp}} </a></dd>
                 {% endfor %}
+                <br>
                 {% if github %}
                 <dd><span>GitHub:</span> <a href="{{ github }}" target="_blank">{{ github }}</a></dd>
                 {% endif %}
-                {% if online %}
-                <dd><span>在线简历:</span> <a href="{{ online }}" target="_blank">{{ online }}</a></dd>
-                {% endif %}
+                <br>
+
             </li>
             <li class="someRight">
                 <dt><i class="fa fa-bookmark"></i>Contact. 联系方式</dt>
